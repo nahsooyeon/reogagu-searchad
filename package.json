@@ -1,0 +1,33 @@
+{
+  "name": "reogagu-naver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node --project tsconfig.server.json server/index.ts",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@googleapis/docs": "^0.2.0",
+    "@types/crypto-js": "^4.0.2",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^83.0.0",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.10",
+    "@types/react": "^17.0.15",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
