@@ -1,8 +1,9 @@
 import { google } from "googleapis";
+import { auth } from "googleapis/build/src/apis/abusiveexperiencereport";
 
 export const Authentication = async () => {
   const auth = new google.Auth.GoogleAuth({
-    keyFile: "crednetials.json",
+    keyFile: "credentials.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
   });
 
