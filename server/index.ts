@@ -5,30 +5,6 @@ import { Authentication } from "./google/authentification";
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
-/*const dev = process.env.NODE_ENV !== "production";
- const app = next({ dev });
-
-const handle = app.getRequestHandler();
-
-
-(async () => {
-  try {
-    await app.prepare();
-    const server = express();
-    server.all("*", (req: Request, res: Response) => {
-      return handle(req, res);
-    });
-    server.listen(port, (err?: any) => {
-      if (err) throw err;
-      console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`);
-    });
-  } catch (e) {
-    console.error(e);
-    process.exit(1);
-  }
-})();
- */
-
 class Server {
   public app: express.Application;
 
@@ -51,7 +27,19 @@ server
 
 server.get("/", async (req, res) => {
   try {
-    const { sheets } = await Authentication();
-    const response = await sheets.spreadsheets.values.get({})
-  } catch (e) {}
+    res.status(200).send("success");
+  } catch (error) {
+    console.error("Error");
+    res.status(404);
+  }
+});
+
+server.get("/newdocument", async (req, res) => {
+  try {
+    const newDocument = await Authentication();
+    res.status(200).send(newDocument);
+  } catch (error) {
+    console.error("Error");
+    res.status(404);
+  }
 });
