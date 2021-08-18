@@ -1,16 +1,16 @@
-import { google } from "googleapis";
-import { auth } from "googleapis/build/src/apis/abusiveexperiencereport";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import AccountInfo from "../../credentials.json";
 
-export const Authentication = async () => {
-  const auth = new google.Auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-  });
+// / 처음 시작할 때 문서 접속에 대한 인증을 처리하고 해당 문서를 로드하기.
 
-  const client = await auth.getClient();
-  const sheets = google.sheets({
-    version: "v4",
-    auth: client,
+/* 클라이언트로부터 받은 문서 ID 에 접근하기 위한 인증 진행*/
+
+export const Authentication = async (): Promise<GoogleSpreadsheet> => {
+  const doc = new GoogleSpreadsheet("<the sheet ID from the url");
+  await doc.useServiceAccountAuth({
+    client_email: AccountInfo.client_email,
+    private_key: AccountInfo.private_key,
   });
-  return { sheets };
+  await doc.loadInfo();
+  return doc;
 };
