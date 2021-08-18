@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  font-family: sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+@import "./Home.module.scss";
+@import "./pages/index";
