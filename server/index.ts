@@ -34,7 +34,7 @@ server.get("/", async (req, res) => {
   }
 });
 
-server.get("/newdocument", async (req, res) => {
+/* server.get("/newdocument", async (req, res) => {
   try {
     const newDocument = await Authentication();
     res.status(200).send(newDocument);
@@ -43,3 +43,4 @@ server.get("/newdocument", async (req, res) => {
     res.status(404);
   }
 });
+ */
